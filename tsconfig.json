@@ -1,19 +1,29 @@
 {
-  "extends": "@tsconfig/recommended",
+  "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "NodeNext",
+    "moduleResolution": "node",
     "lib": [
       "ESNext",
       "DOM"
     ],
+    "noUnusedLocals": true,
     "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "."
-  }
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "importHelpers": true,
+    "baseUrl": ".",
+    "types": ["jest"]
+  },
+  "exclude": [
+    "src/**/*.spec.ts",
+    "node_modules"
+  ],
 }
