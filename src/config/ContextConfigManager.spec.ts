@@ -95,7 +95,7 @@ describe('ContextConfigManager', () => {
     });
 
     expect(() =>
-      ContextConfigManager.createDefaultContext(config),
+      ContextConfigManager.createDefaultContext(config)
     ).toThrowError('ReliesOn context NON_EXISTENT_CONTEXT not found.');
   });
 });

@@ -31,14 +31,14 @@ export class ContextConfigManager<
   public static get instance(): ContextConfigManager {
     if (!ContextConfigManager._instance) {
       throw new Error(
-        'ContextConfigManager is not initialized. Please create it first.',
+        'ContextConfigManager is not initialized. Please create it first.'
       );
     }
     return ContextConfigManager._instance;
   }
 
   public static createDefaultContext(
-    config: DecisionContextConfig,
+    config: DecisionContextConfig
   ): ContextConfigManager {
     const instance = new ContextConfigManager();
     instance._config = config;
@@ -56,7 +56,7 @@ export class ContextConfigManager<
   protected initializeContexts() {
     if (!this._config) {
       throw new Error(
-        'ContextConfigManager is not initialized with a configuration.',
+        'ContextConfigManager is not initialized with a configuration.'
       );
     }
     this._config.contexts.forEach((config) => {
@@ -79,7 +79,7 @@ export class ContextConfigManager<
   protected setDependencies() {
     if (!this._config) {
       throw new Error(
-        'ContextConfigManager is not initialized with a configuration.',
+        'ContextConfigManager is not initialized with a configuration.'
       );
     }
     this._config.contexts.forEach((config) => {
@@ -93,7 +93,7 @@ export class ContextConfigManager<
           const reliesOnContext = this._contexts.get(reliesOnConfig.context);
           if (!reliesOnContext) {
             throw new Error(
-              `ReliesOn context ${reliesOnConfig.context} not found.`,
+              `ReliesOn context ${reliesOnConfig.context} not found.`
             );
           }
 
@@ -102,7 +102,7 @@ export class ContextConfigManager<
           try {
             const fn = new Function(
               'reliesOn',
-              `return ${parseReliesOnConfig.func}`,
+              `return ${parseReliesOnConfig.func}`
             ); // Create a function from the string
             // Set up the reliesOn condition
             context.relies.on(reliesOnContext).with(() => {
@@ -116,7 +116,7 @@ export class ContextConfigManager<
             const elseGoToContext = this._contexts.get(reliesOnConfig.elseGoTo);
             if (!elseGoToContext) {
               throw new Error(
-                `ElseGoTo context ${reliesOnConfig.elseGoTo} not found.`,
+                `ElseGoTo context ${reliesOnConfig.elseGoTo} not found.`
               );
             }
             context.relies.elseGoTo(elseGoToContext);
@@ -133,7 +133,7 @@ export class ContextConfigManager<
   protected parseReliesOnConfig(config: ReliesOnConfig) {
     if (!config.context || !config.func) {
       throw new Error(
-        'Invalid reliesOn configuration: context and func are required.',
+        'Invalid reliesOn configuration: context and func are required.'
       );
     }
     return config;
@@ -142,7 +142,7 @@ export class ContextConfigManager<
   protected parseContextConfig(config: IContextConfig): IContextConfig {
     if (!config.name || !config.title) {
       throw new Error(
-        'Invalid context configuration: id and title are required.',
+        'Invalid context configuration: id and title are required.'
       );
     }
     if (config.reliesOn && !Array.isArray(config.reliesOn)) {

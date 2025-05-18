@@ -8,7 +8,7 @@ export class ReliesOnWithBuilder implements IRelyOnWithBuilder {
   constructor(
     builder: ReliesOnBuilder,
     private _reliesOn: Map<string, IRelyOnWith>,
-    private _name: string,
+    private _name: string
   ) {
     this._builder = builder;
   }

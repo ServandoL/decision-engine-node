@@ -10,13 +10,13 @@ describe('ReliesOnWithBuilder', () => {
 
   beforeEach(() => {
     reliesOnBuilder = new ReliesOnBuilder(
-      DecisionContext.create('context1', 'Context 1'),
+      DecisionContext.create('context1', 'Context 1')
     );
     reliesOnMap = new Map<string, IRelyOnWith>();
     reliesOnWithBuilder = new ReliesOnWithBuilder(
       reliesOnBuilder,
       reliesOnMap,
-      'context2',
+      'context2'
     );
   });
 
