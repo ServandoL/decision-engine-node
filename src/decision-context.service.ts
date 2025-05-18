@@ -12,7 +12,9 @@ import { DecisionContextState } from './interfaces.js';
  * This service is responsible for managing the context of the stepper
  * Implemented as a doubly-linked list
  */
-export class DecisionContextService<T extends DecisionContext = DecisionContext> {
+export class DecisionContextService<
+  T extends DecisionContext = DecisionContext,
+> {
   private _head?: T;
   private _tail?: T;
   private _length = 0;
@@ -23,7 +25,9 @@ export class DecisionContextService<T extends DecisionContext = DecisionContext>
    * will contain all the state values of each context
    * @private
    */
-  private readonly _globalState$ = new BehaviorSubject<DecisionContextState>({ __context: DecisionContextService.name });
+  private readonly _globalState$ = new BehaviorSubject<DecisionContextState>({
+    __context: DecisionContextService.name,
+  });
 
   /**
    * The global state observable that can be used to track the state of the decision context
@@ -32,7 +36,6 @@ export class DecisionContextService<T extends DecisionContext = DecisionContext>
   public get globalState$(): BehaviorSubject<DecisionContextState> {
     return this._globalState$;
   }
-
 
   public get sectionMap(): Map<number, T> {
     return this._sectionMap;
@@ -182,15 +185,13 @@ export class DecisionContextService<T extends DecisionContext = DecisionContext>
    */
   public prepareGlobalState(): void {
     this._sectionMap.forEach((section) => {
-      section.state$.subscribe(
-        (state: DecisionContextState) => {
-          this._globalState$.next({
-            ...this._globalState$.value,
-            ...state,
-            __context: DecisionContextService.name,
-          });
-        },
-      );
+      section.state$.subscribe((state: DecisionContextState) => {
+        this._globalState$.next({
+          ...this._globalState$.value,
+          ...state,
+          __context: DecisionContextService.name,
+        });
+      });
     });
   }
 }

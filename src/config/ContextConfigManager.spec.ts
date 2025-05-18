@@ -1,4 +1,7 @@
-import { ContextConfigManager, DecisionContextConfig } from './ContextConfigManager';
+import {
+  ContextConfigManager,
+  DecisionContextConfig,
+} from './ContextConfigManager';
 
 describe('ContextConfigManager', () => {
   let config: DecisionContextConfig;
@@ -14,24 +17,29 @@ describe('ContextConfigManager', () => {
         {
           name: 'DOG_ID',
           title: 'Dog Information',
-          reliesOn: [{
-            context: 'USER_INFORMATION_SECTION_ID',
-            func: 'state.age >= 8',
-            elseGoTo: 'PLANT_ID',
-          }],
+          reliesOn: [
+            {
+              context: 'USER_INFORMATION_SECTION_ID',
+              func: 'state.age >= 8',
+              elseGoTo: 'PLANT_ID',
+            },
+          ],
         },
         {
           name: 'CAT_ID',
           title: 'Cat Information',
-          reliesOn: [{
-            context: 'USER_INFORMATION_SECTION_ID',
-            func: 'state.age >= 8',
-            elseGoTo: 'PLANT_ID',
-          }, {
-            context: 'DOG_ID',
-            func: 'state.dogType !== "lab"',
-            elseGoTo: 'PLANT_ID',
-          }],
+          reliesOn: [
+            {
+              context: 'USER_INFORMATION_SECTION_ID',
+              func: 'state.age >= 8',
+              elseGoTo: 'PLANT_ID',
+            },
+            {
+              context: 'DOG_ID',
+              func: 'state.dogType !== "lab"',
+              elseGoTo: 'PLANT_ID',
+            },
+          ],
         },
         {
           name: 'PLANT_ID',
@@ -78,12 +86,16 @@ describe('ContextConfigManager', () => {
     config.contexts.push({
       name: 'INVALID_CONTEXT',
       title: 'Invalid Context',
-      reliesOn: [{
-        context: 'NON_EXISTENT_CONTEXT',
-        func: 'state.age >= 8',
-      }],
+      reliesOn: [
+        {
+          context: 'NON_EXISTENT_CONTEXT',
+          func: 'state.age >= 8',
+        },
+      ],
     });
 
-    expect(() => ContextConfigManager.createDefaultContext(config)).toThrowError('ReliesOn context NON_EXISTENT_CONTEXT not found.');
+    expect(() =>
+      ContextConfigManager.createDefaultContext(config),
+    ).toThrowError('ReliesOn context NON_EXISTENT_CONTEXT not found.');
   });
 });

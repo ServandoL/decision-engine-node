@@ -1,11 +1,15 @@
 import { ReliesOnBuilder } from './ReliesOnBuilder.js';
-import {IRelyOnWith, IRelyOnWithBuilder} from "./interfaces.js";
-import {ReliesOnFunction} from "../interfaces.js";
+import { IRelyOnWith, IRelyOnWithBuilder } from './interfaces.js';
+import { ReliesOnFunction } from '../interfaces.js';
 
 export class ReliesOnWithBuilder implements IRelyOnWithBuilder {
   private readonly _builder: ReliesOnBuilder;
 
-  constructor(builder: ReliesOnBuilder, private _reliesOn: Map<string, IRelyOnWith>, private _name: string) {
+  constructor(
+    builder: ReliesOnBuilder,
+    private _reliesOn: Map<string, IRelyOnWith>,
+    private _name: string,
+  ) {
     this._builder = builder;
   }
 

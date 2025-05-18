@@ -37,7 +37,6 @@ describe('DecisionContext', () => {
   });
 
   it('should set and get next and previous', () => {
-
     context1.next = context2;
     context2.previous = context1;
 
@@ -45,7 +44,6 @@ describe('DecisionContext', () => {
     expect(context2.previous).toBe(context1);
   });
   describe('executeReliesOn', () => {
-
     it('should return true if all reliesOn functions return true', () => {
       context2.relies.on(context1).with(() => true);
       context3.relies.on(context2).with(() => true);
@@ -84,7 +82,10 @@ describe('DecisionContext', () => {
     });
     describe('elseGoTo', () => {
       it('should set the next context and link the previous context if the execReliesOn fails', () => {
-        context2.relies.on(context1).with(() => false).elseGoTo(context3);
+        context2.relies
+          .on(context1)
+          .with(() => false)
+          .elseGoTo(context3);
 
         context2.executeReliesOn(context1);
         expect(context1.next).toBe(context3);

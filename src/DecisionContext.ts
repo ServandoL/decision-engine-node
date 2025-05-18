@@ -9,13 +9,14 @@ export class DecisionContext {
   private _state: DecisionContextState;
   private _next?: DecisionContext;
   private _previous?: DecisionContext;
-  private _state$: BehaviorSubject<DecisionContextState> = new BehaviorSubject<DecisionContextState>({ __context: 'default' });
+  private _state$: BehaviorSubject<DecisionContextState> =
+    new BehaviorSubject<DecisionContextState>({ __context: 'default' });
   private _reliesOnSuccess$ = new Subject<boolean>();
   private _onDestroy$ = new Subject<void>();
   private _callerContext: DecisionContext | undefined;
   private _ended$ = new Subject<boolean>();
   private _name: string;
-  public relies= new ReliesOnBuilder(this);
+  public relies = new ReliesOnBuilder(this);
 
   protected constructor(name: string, title: string) {
     this._id = ++DecisionContext.id;
@@ -27,7 +28,6 @@ export class DecisionContext {
   public static create(name: string, title: string): DecisionContext {
     return new DecisionContext(name, title);
   }
-
 
   public updateStateValue(key: string, value: any): void {
     this._state[key] = value;
@@ -94,8 +94,8 @@ export class DecisionContext {
     return this._callerContext;
   }
 
-  get ended$(): Subject<boolean>{
-    return this._ended$
+  get ended$(): Subject<boolean> {
+    return this._ended$;
   }
 
   get name(): string {

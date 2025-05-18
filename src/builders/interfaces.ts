@@ -1,21 +1,21 @@
-import {DecisionContext} from "../DecisionContext.js";
-import {ReliesOnFunction} from "../interfaces.js";
+import { DecisionContext } from '../DecisionContext.js';
+import { ReliesOnFunction } from '../interfaces.js';
 
 export interface IRelyOnWith {
-    context: DecisionContext,
-    func: ReliesOnFunction;
+  context: DecisionContext;
+  func: ReliesOnFunction;
 }
 
 export interface IRelyOnBuilder {
-    on(context: DecisionContext): IRelyOnWithBuilder;
+  on(context: DecisionContext): IRelyOnWithBuilder;
 
-    elseGoTo(context: DecisionContext): this;
+  elseGoTo(context: DecisionContext): this;
 
-    elseEnd(): this;
+  elseEnd(): this;
 
-    build(): Map<string, IRelyOnWith>;
+  build(): Map<string, IRelyOnWith>;
 }
 
 export interface IRelyOnWithBuilder {
-    with(func: ReliesOnFunction): IRelyOnBuilder;
+  with(func: ReliesOnFunction): IRelyOnBuilder;
 }
