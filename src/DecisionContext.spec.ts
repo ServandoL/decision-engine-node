@@ -1,4 +1,4 @@
-import { DecisionContext } from './DecisionContext.js';
+import { DecisionContext } from './DecisionContext';
 
 describe('DecisionContext', () => {
   let context1: DecisionContext;

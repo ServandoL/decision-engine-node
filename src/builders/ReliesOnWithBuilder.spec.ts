@@ -1,7 +1,7 @@
-import { ReliesOnBuilder } from './ReliesOnBuilder.js';
-import { ReliesOnWithBuilder } from './ReliesOnWithBuilder.js';
-import { DecisionContext } from '../DecisionContext.js';
-import { IRelyOnWith } from './interfaces.js';
+import { ReliesOnBuilder } from './ReliesOnBuilder';
+import { ReliesOnWithBuilder } from './ReliesOnWithBuilder';
+import { DecisionContext } from '../DecisionContext';
+import { IRelyOnWith } from './interfaces';
 
 describe('ReliesOnWithBuilder', () => {
   let reliesOnBuilder: ReliesOnBuilder;

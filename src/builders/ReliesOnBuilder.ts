@@ -1,7 +1,7 @@
-import {DecisionContext} from '../DecisionContext.js';
+import {DecisionContext} from '../DecisionContext';
 import {takeUntil} from 'rxjs';
-import {IRelyOnWith, IRelyOnWithBuilder} from './interfaces.js';
-import {ReliesOnWithBuilder} from './ReliesOnWithBuilder.js';
+import {IRelyOnWith, IRelyOnWithBuilder} from './interfaces';
+import {ReliesOnWithBuilder} from './ReliesOnWithBuilder';
 
 export class ReliesOnBuilder {
     private readonly _context: DecisionContext;

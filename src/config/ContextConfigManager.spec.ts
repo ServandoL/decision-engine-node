@@ -1,4 +1,4 @@
-import { ContextConfigManager, DecisionContextConfig } from './ContextConfigManager.js';
+import { ContextConfigManager, DecisionContextConfig } from './ContextConfigManager';
 
 describe('ContextConfigManager', () => {
   let config: DecisionContextConfig;

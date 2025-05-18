@@ -1,6 +1,6 @@
 import { BehaviorSubject, Subject } from 'rxjs';
-import { DecisionContextState } from './interfaces.js';
-import { ReliesOnBuilder } from './builders/ReliesOnBuilder.js';
+import { DecisionContextState } from './interfaces';
+import { ReliesOnBuilder } from './builders/ReliesOnBuilder';
 
 export class DecisionContext {
   public static id = 0; // Static property to keep track of the number of instances created

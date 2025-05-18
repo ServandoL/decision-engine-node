@@ -1,4 +1,4 @@
-import { DecisionContext } from '../DecisionContext.js';
+import { DecisionContext } from '../DecisionContext';
 
 export interface DecisionContextConfig {
   contexts: IContextConfig[]; // array of context configurations

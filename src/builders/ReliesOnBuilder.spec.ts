@@ -1,5 +1,5 @@
-import {DecisionContext} from '../DecisionContext.js';
-import {ReliesOnBuilder} from './ReliesOnBuilder.js';
+import {DecisionContext} from '../DecisionContext';
+import {ReliesOnBuilder} from './ReliesOnBuilder';
 import {take} from 'rxjs';
 
 describe('ReliesOnBuilder', () => {
